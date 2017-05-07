@@ -1,13 +1,20 @@
 const binSearch = (arr, key, beg, end) => {
-	if (beg == end) return [null, beg];
+	if (end < 0) return [null, beg];
 
-	let half = Math.floor((end - beg) / 2);
+	let half = Math.floor((end + beg) / 2),
+		retArr = [];
 
-	console.log(beg, end, key);
+	if (arr[half][1].localeCompare(key) > 0) {
+		if (beg == end) return [null, beg];
 
-	if (arr[half][1].localeCompare(key) > 0) binSearch(arr, key, beg, half - 1);
-	else if (arr[half][1].localeCompare(key) < 0) binSearch(arr, key, half + 1, end);
-	else return [1, half];
+		retArr = binSearch(arr, key, beg, half - 1);
+	} else if (arr[half][1].localeCompare(key) < 0) {
+		if (beg == end) return [null, end + 1];
+
+		retArr = binSearch(arr, key, half + 1, end);
+	} else return [1, half];
+
+	return retArr;
 };
 
 const updateInventory = (arr1, arr2) => {
@@ -15,7 +22,7 @@ const updateInventory = (arr1, arr2) => {
 		let idx = binSearch(arr1, arr2[i][1], 0, arr1.length - 1);
 
 		if (idx[0]) arr1[idx[1]][0] += arr2[i][0];
-		else arr1.splice(idx, 0, arr2[i]);
+		else arr1.splice(idx[1], 0, arr2[i]);
 	}
 
 	return arr1;
