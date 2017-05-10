@@ -13,4 +13,8 @@ inp_dict = {
 	"album": "The Neighbor of the Beast"
 }
 
+my_list = [1,2,3,4,5]
+
 print get_length(inp_dict)
+
+print inp_dict["style"]

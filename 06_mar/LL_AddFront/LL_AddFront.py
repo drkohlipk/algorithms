@@ -32,6 +32,8 @@ myList.addFront(8)
 
 myList.printList()
 
+print " ------------------- "
+
 myList.removeFront()
 
 myList.printList()
