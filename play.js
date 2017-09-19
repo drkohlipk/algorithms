@@ -174,43 +174,35 @@
 //
 // console.log(list);
 //
-// var arr = [4, 2, 4, 2, 1, 5, 7, 2];
-// var arr = [4, 2, 1, 2, 1, 5, 7, 2];
-// var arr = [1, 1, 1, 10, 1, 7, 1, 12, 1];
-var arr = [10, 1, 1, 1, 1, 1, 1, 1, 1];
+// var arr = [4, 2, 4, 2, 1, 5, 7, 2]; //should be 7
+// var arr = [4, 2, 1, 2, 1, 5, 7, 2]; //should be 10
+// var arr = [1, 1, 1, 10, 1, 7, 1, 12, 1]; //should be 21
+// var arr = [10, 1, 1, 1, 1, 1, 1, 1, 1]; //should be 0
 
 function findRain(arr) {
-	var temp = arr[0],
-		tempSum = 0,
-		sum = 0,
+	var sum = 0,
 		i = 0;
 	for (var j = i + 1; j < arr.length; j++) {
 		if (arr[j] >= arr[i] && j == i + 1) {
 			i++;
-		} else if (arr[j] < arr[i]) {
-			tempSum += arr[i] - arr[j];
 		} else if (arr[j] >= arr[i]) {
-			sum += tempSum;
-			tempSum = 0;
+			sum += arr[i] * (j - i - 1);
+			for (var k = i + 1; k < j; k++) {
+				sum -= arr[k];
+			}
 			i = j;
-		} else if (j == arr.length - 1) {
-			break;
 		}
 	}
 	i = arr.length - 1;
-	tempSum = 0;
 	for (var l = i - 1; l >= 0; l--) {
 		if (arr[l] >= arr[i] && l == i - 1) {
-			// tempSum = 0;
 			i--;
-		} else if (arr[l] < arr[i]) {
-			tempSum += arr[i] - arr[l];
 		} else if (arr[l] > arr[i]) {
-			sum += tempSum;
-			tempSum = 0;
+			sum += arr[i] * (i - l - 1);
+			for (var k = i - 1; k > l; k--) {
+				sum -= arr[k];
+			}
 			i = l;
-		} else if (l === 0) {
-			return sum;
 		}
 	}
 	return sum;
