@@ -5,7 +5,7 @@
 // see if it matches the sought after integer and add
 // to the count as necessary.
 
-// TC: O(2^N)
+// TC: O(NlogN)
 // SC: O(N)
 
 class Tree {
