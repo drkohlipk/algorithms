@@ -1,0 +1,23 @@
+{
+	"name": "algorithms",
+	"version": "1.0.0",
+	"description": "Wide range of practice algorithms and helpers",
+	"main": "README.md",
+	"scripts": {
+		"test": "run-for-every-file --src dailies/$DIR --file '**/*.js' --run 'node {{src-file}}'"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/drkohlipk/algorithms.git"
+	},
+	"author": "PJ",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/drkohlipk/algorithms/issues"
+	},
+	"homepage": "https://github.com/drkohlipk/algorithms#readme",
+	"dependencies": {
+		"chalk": "^2.4.1",
+		"run-for-every-file": "^1.1.0"
+	}
+}

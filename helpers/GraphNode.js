@@ -1,7 +1,7 @@
 class GraphNode {
 	constructor(id) {
 		this._id = id;
-		this._children = [];
+		this._children = new Set();
 	}
 
 	get id() {
@@ -13,7 +13,7 @@ class GraphNode {
 	}
 
 	addChild(node, isUndirected) {
-		this._children.push(node);
+		this._children.add(node);
 
 		if (isUndirected) {
 			node.addChild(this, false);
@@ -21,13 +21,7 @@ class GraphNode {
 	}
 
 	removeChild(id) {
-		for (let i = 0; i < this.children.length; i++) {
-			if (this._children[i].id === id) {
-				return this._children.splice(i, 1)[0];
-			}
-		}
-
-		return undefined;
+		return this._children.delete(id);
 	}
 }
 

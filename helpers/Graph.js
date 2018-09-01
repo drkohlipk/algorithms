@@ -1,6 +1,6 @@
 class Graph {
 	constructor() {
-		this._nodes = [];
+		this._nodes = new Set();
 	}
 
 	get nodes() {
@@ -8,7 +8,7 @@ class Graph {
 	}
 
 	addNode(node) {
-		this.nodes.push(node);
+		this.nodes.add(node);
 	}
 }
 
