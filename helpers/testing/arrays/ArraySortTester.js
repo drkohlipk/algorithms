@@ -2,8 +2,7 @@ const chalk = require('chalk');
 const randomArr = require('../../randomArr');
 
 class ArraySortTester {
-	constructor(sortMethod, isInPlace) {
-		this.isInPlace = isInPlace;
+	constructor(sortMethod) {
 		this.sortMethod = sortMethod;
 
 		this.testSort();

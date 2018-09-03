@@ -10,10 +10,9 @@ const breadthFirstSearch = (root, id) => {
 
 	while (q.length) {
 		const n = q.shift();
+		visited.add(n);
 
 		if (n.id === id) return n;
-
-		visited.add(n);
 
 		for (const child of n.children) {
 			if (!visited.has(child)) {

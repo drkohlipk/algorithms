@@ -4,9 +4,9 @@ const GraphNode = require('../../GraphNode');
 const graphSearch = require('./graphSearch');
 
 class GraphSearchTester {
-	constructor(numNodes, searchMethod) {
+	constructor(searchMethod) {
 		this.graph = new Graph();
-		this.numNodes = numNodes > 1000 ? 1000 : numNodes;
+		this.numNodes = 1000;
 		this.searchMethod = searchMethod;
 
 		this.start();
