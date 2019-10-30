@@ -15,9 +15,7 @@ const BFS = (root, id) => {
 		if (n.id === id) return n;
 
 		for (const child of n.children) {
-			if (!visited.has(child)) {
-				q.push(child);
-			}
+			if (!visited.has(child)) q.push(child);
 		}
 	}
 
