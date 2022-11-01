@@ -7,13 +7,13 @@ from helpers.testing.graph_search_tester import GraphSearchTester
 def depth_first_search(
         root: Optional[GraphNode],
         identifier: int,
-        visited: Optional[Set[GraphNode]] = None,
+        visited: Optional[Set[GraphNode]] = None
 ) -> Optional[GraphNode]:
     if root is None or root.get_id() == identifier:
         return root
 
     if visited is None:
-        visited: Set[GraphNode] = set()
+        visited = set()
 
     visited.add(root)
 
@@ -25,8 +25,8 @@ def depth_first_search(
                 child, identifier, visited
             )
 
-        if n is not None:
-            break
+            if n is not None:
+                break
 
     return n
 
